@@ -4,7 +4,7 @@
   <title><![CDATA[Cat Coding Things]]></title>
   <link href="http://SemonCat.github.com/atom.xml" rel="self"/>
   <link href="http://SemonCat.github.com/"/>
-  <updated>2012-10-29T00:22:11+08:00</updated>
+  <updated>2012-10-29T00:28:23+08:00</updated>
   <id>http://SemonCat.github.com/</id>
   <author>
     <name><![CDATA[SemonCat]]></name>
@@ -18,7 +18,10 @@
     <link href="http://SemonCat.github.com/blog/2012/10/29/first-post/"/>
     <updated>2012-10-29T00:10:00+08:00</updated>
     <id>http://SemonCat.github.com/blog/2012/10/29/first-post</id>
-    <content type="html"><![CDATA[<p>要在Octopress中輸出中文，必須修改一些設定，</p>
+    <content type="html"><![CDATA[<!-- more -->
+
+
+<p>要在Octopress中輸出中文，必須修改一些設定，</p>
 
 <p>以下是流程：</p>
 
@@ -28,7 +31,13 @@
 
 <p>3.找到convertible.rb這個檔案。</p>
 
-<p>4.修改>self.content = File.read(File.join(base, name)) 為 >self.content = File.read(File.join(base, name), :encoding => &#8220;utf-8&#8221;)</p>
+<p>4.修改</p>
+
+<blockquote><p>self.content = File.read(File.join(base, name))</p></blockquote>
+
+<p>為</p>
+
+<blockquote><p>self.content = File.read(File.join(base, name), :encoding => &#8220;utf-8&#8221;)</p></blockquote>
 ]]></content>
   </entry>
   

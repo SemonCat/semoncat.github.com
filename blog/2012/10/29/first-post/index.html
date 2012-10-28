@@ -9,7 +9,7 @@
   <meta name="author" content="SemonCat">
 
   
-  <meta name="description" content="要在Octopress中輸出中文，必須修改一些設定， 以下是流程： 1.到Ruby安裝目錄下。 2.lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll。 3.找到convertible.rb這個檔案。 4.修改>self.content = File &hellip;">
+  <meta name="description" content="要在Octopress中輸出中文，必須修改一些設定， 以下是流程： 1.到Ruby安裝目錄下。 2.lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll。 3.找到convertible.rb這個檔案。 4.修改 self.content = &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -90,7 +90,10 @@
   </header>
 
 
-<div class="entry-content"><p>要在Octopress中輸出中文，必須修改一些設定，</p>
+<div class="entry-content"><!-- more -->
+
+
+<p>要在Octopress中輸出中文，必須修改一些設定，</p>
 
 <p>以下是流程：</p>
 
@@ -100,7 +103,13 @@
 
 <p>3.找到convertible.rb這個檔案。</p>
 
-<p>4.修改>self.content = File.read(File.join(base, name)) 為 >self.content = File.read(File.join(base, name), :encoding => &#8220;utf-8&#8221;)</p>
+<p>4.修改</p>
+
+<blockquote><p>self.content = File.read(File.join(base, name))</p></blockquote>
+
+<p>為</p>
+
+<blockquote><p>self.content = File.read(File.join(base, name), :encoding => &#8220;utf-8&#8221;)</p></blockquote>
 </div>
 
 
