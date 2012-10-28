@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Cat Coding Things]]></title>
-  <link href="http://SemonCat.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Octopress | Cat Coding Things]]></title>
+  <link href="http://SemonCat.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://SemonCat.github.com/"/>
   <updated>2012-10-29T01:10:28+08:00</updated>
   <id>http://SemonCat.github.com/</id>
@@ -37,7 +37,7 @@
 
 <p>為</p>
 
-<blockquote><p>self.content = File.read(File.join(base, name), :encoding => &#8220;utf-8&#8221;)</p></blockquote>
+<blockquote><p>self.content = File.read(File.join(base, name), :encoding => "utf-8")</p></blockquote>
 ]]></content>
   </entry>
   
