@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>first_post - Cat Coding Things</title>
+  <title>Octopress中文設定 - Cat Coding Things</title>
   <meta name="author" content="SemonCat">
 
   
-  <meta name="description" content="中文測試
-">
+  <meta name="description" content="要在Octopress中輸出中文，必須修改一些設定， 以下是流程： 1.到Ruby安裝目錄下。 2.lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll。 3.找到convertible.rb這個檔案。 4.修改>self.content = File &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,7 +67,7 @@
   
   <header>
     
-      <h1 class="entry-title">First_post</h1>
+      <h1 class="entry-title">Octopress中文設定</h1>
     
     
       <p class="meta">
@@ -91,7 +90,17 @@
   </header>
 
 
-<div class="entry-content"><p>中文測試</p>
+<div class="entry-content"><p>要在Octopress中輸出中文，必須修改一些設定，</p>
+
+<p>以下是流程：</p>
+
+<p>1.到Ruby安裝目錄下。</p>
+
+<p>2.lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll。</p>
+
+<p>3.找到convertible.rb這個檔案。</p>
+
+<p>4.修改>self.content = File.read(File.join(base, name)) 為 >self.content = File.read(File.join(base, name), :encoding => &#8220;utf-8&#8221;)</p>
 </div>
 
 
@@ -147,7 +156,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/10/29/first-post/">first_post</a>
+        <a href="/blog/2012/10/29/first-post/">Octopress中文設定</a>
       </li>
     
   </ul>
