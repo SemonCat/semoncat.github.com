@@ -4,7 +4,7 @@
   <title><![CDATA[Cat Coding Things]]></title>
   <link href="http://SemonCat.github.com/atom.xml" rel="self"/>
   <link href="http://SemonCat.github.com/"/>
-  <updated>2012-10-28T23:47:58+08:00</updated>
+  <updated>2012-10-29T00:09:19+08:00</updated>
   <id>http://SemonCat.github.com/</id>
   <author>
     <name><![CDATA[SemonCat]]></name>
@@ -12,14 +12,5 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[HelloWorld]]></title>
-    <link href="http://SemonCat.github.com/blog/2012/10/28/helloworld/"/>
-    <updated>2012-10-28T23:42:00+08:00</updated>
-    <id>http://SemonCat.github.com/blog/2012/10/28/helloworld</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
   
 </feed>
