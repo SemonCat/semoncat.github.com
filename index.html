@@ -7,7 +7,7 @@
 	<meta name="author" content="SemonCat">
 
 	
-	<meta name="description" content="$(document).ready(function() { $('pre').addClass('prettyprint linenums') //添加Google code Hight需要的class // 這段代碼是用來提取文章中鏈接到其他網站的鏈接 // 然後給這寫鏈接加上外鏈的樣式， &hellip;">
+	<meta name="description" content=" 閱讀更多 &rarr; Oct 29th, 2012 SublimeText2 Comments ">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -72,52 +72,6 @@
 		
 	
 	<div id="content" class="inner">
-
-
-    <article class="post">
-	<h1 class="title"><a href="/blog/2012/10/29/testcode/">testCode</a></h1>
-	<div class="entry-content">
-		<pre><code>$(document).ready(function() {
-    $('pre').addClass('prettyprint linenums') //添加Google code Hight需要的class
-    // 這段代碼是用來提取文章中鏈接到其他網站的鏈接
-    // 然後給這寫鏈接加上外鏈的樣式，並且修改為在新窗口打開(target=_blank)
-    $('.entry a').each(function(index, element) {
-        var href = $(this).attr('href');
-        if(href.indexOf('#') == 0) {} else if(href.indexOf('/') == 0 || href.toLowerCase().indexOf('beiyuu.com') &gt; -1) {} else {
-            $(this).attr('target', '_blank');
-            $(this).addClass('external');
-        }
-    BYB.includeScript('/js/prettify/prettify.js',function(){prettyPrint()});
-    });
-});
-</code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-29T22:25:00+08:00" pubdate data-updated="true">Oct 29<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-</div>
-	
-		<span class="comments"><a href="/blog/2012/10/29/testcode//index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
 
 
     <article class="post">
@@ -203,6 +157,7 @@
 </footer>
 	<script src="/javascripts/slash.js"></script>
 <script src="/javascripts/autoblank.js"></script>
+<script src="/javascripts/prettify/prettify.js"></script>
 <script src="/javascripts/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
