@@ -4,7 +4,7 @@
   <title><![CDATA[Category: SublimeText2 | Cat Coding Things]]></title>
   <link href="http://SemonCat.github.com/blog/categories/sublimetext2/atom.xml" rel="self"/>
   <link href="http://SemonCat.github.com/"/>
-  <updated>2012-10-29T22:20:37+08:00</updated>
+  <updated>2012-10-29T22:27:52+08:00</updated>
   <id>http://SemonCat.github.com/</id>
   <author>
     <name><![CDATA[SemonCat]]></name>
@@ -54,8 +54,7 @@
 <h1>安裝教學</h1>
 
 <ol>
-<li><p><a href="https://www.dropbox.com/s/ufh0hdv4tyhx2v4/Sublime%20Text%202.7z" title="Download" target="_blank">下載檔案</a>，解壓縮到喜歡的位置。</p></li>
-<li><p><a href="https://www.dropbox.com/s/ufh0hdv4tyhx2v4/Sublime%20Text%202.7z" title="Download">下載</a>，解壓縮到喜歡的位置。</p></li>
+<li><p><a href="https://www.dropbox.com/s/ufh0hdv4tyhx2v4/Sublime%20Text%202.7z" title="Download">下載檔案</a>，解壓縮到喜歡的位置。</p></li>
 <li><p>開始使用！</p></li>
 <li><p>如果有需要關聯文件和整合到右鍵選單，
 請開啟<code>ST2 便携版工具包.exe</code>，因為是對岸所製作的軟體，所以是亂碼，這邊附上對照表。</p></li>

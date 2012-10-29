@@ -4,7 +4,7 @@
   <title><![CDATA[Cat Coding Things]]></title>
   <link href="http://SemonCat.github.com/atom.xml" rel="self"/>
   <link href="http://SemonCat.github.com/"/>
-  <updated>2012-10-29T22:20:37+08:00</updated>
+  <updated>2012-10-29T22:27:52+08:00</updated>
   <id>http://SemonCat.github.com/</id>
   <author>
     <name><![CDATA[SemonCat]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[testCode]]></title>
+    <link href="http://SemonCat.github.com/blog/2012/10/29/testcode/"/>
+    <updated>2012-10-29T22:25:00+08:00</updated>
+    <id>http://SemonCat.github.com/blog/2012/10/29/testcode</id>
+    <content type="html"><![CDATA[<pre><code>$(document).ready(function() {
+    $('pre').addClass('prettyprint linenums') //添加Google code Hight需要的class
+    // 這段代碼是用來提取文章中鏈接到其他網站的鏈接
+    // 然後給這寫鏈接加上外鏈的樣式，並且修改為在新窗口打開(target=_blank)
+    $('.entry a').each(function(index, element) {
+        var href = $(this).attr('href');
+        if(href.indexOf('#') == 0) {} else if(href.indexOf('/') == 0 || href.toLowerCase().indexOf('beiyuu.com') &gt; -1) {} else {
+            $(this).attr('target', '_blank');
+            $(this).addClass('external');
+        }
+    BYB.includeScript('/js/prettify/prettify.js',function(){prettyPrint()});
+    });
+});
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sublime Text 2]]></title>
@@ -54,8 +76,7 @@
 <h1>安裝教學</h1>
 
 <ol>
-<li><p><a href="https://www.dropbox.com/s/ufh0hdv4tyhx2v4/Sublime%20Text%202.7z" title="Download" target="_blank">下載檔案</a>，解壓縮到喜歡的位置。</p></li>
-<li><p><a href="https://www.dropbox.com/s/ufh0hdv4tyhx2v4/Sublime%20Text%202.7z" title="Download">下載</a>，解壓縮到喜歡的位置。</p></li>
+<li><p><a href="https://www.dropbox.com/s/ufh0hdv4tyhx2v4/Sublime%20Text%202.7z" title="Download">下載檔案</a>，解壓縮到喜歡的位置。</p></li>
 <li><p>開始使用！</p></li>
 <li><p>如果有需要關聯文件和整合到右鍵選單，
 請開啟<code>ST2 便携版工具包.exe</code>，因為是對岸所製作的軟體，所以是亂碼，這邊附上對照表。</p></li>

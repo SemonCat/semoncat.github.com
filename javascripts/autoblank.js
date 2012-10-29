@@ -8,5 +8,6 @@ $(document).ready(function() {
             $(this).attr('target', '_blank');
             $(this).addClass('external');
         }
+    BYB.includeScript('/js/prettify/prettify.js',function(){prettyPrint()});
     });
 });
