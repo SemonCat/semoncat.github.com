@@ -7,7 +7,8 @@
 	<meta name="author" content="SemonCat">
 
 	
-	<meta name="description" content=" 閱讀更多 &rarr; Oct 29th, 2012 SublimeText2 Comments ">
+	<meta name="description" content="public int[] getRandom()
+{ int[] num = new int[10]; int[] ar = new int[10]; int n; for(int i = 0; i &lt; num.length; i++) { num[i] = i; } for(int i &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -72,6 +73,65 @@
 		
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h1 class="title"><a href="/blog/2012/10/30/testcode/">Testcode</a></h1>
+	<div class="entry-content">
+		<pre><code>public int[] getRandom()
+{
+    int[] num = new int[10];
+    int[] ar = new int[10];
+
+    int n;
+
+    for(int i = 0; i &lt; num.length; i++)
+    {
+       num[i] = i;
+    }
+
+    for(int i = 0; i &lt; ar.length; i++)
+    {
+        n = (int)(Math.random()*(10-i));
+
+        ar[i] = num[n];
+
+        for(int j = n; j &lt; num.length - 1; j++)
+        {
+            num[j] = num[j+1];
+        }
+    }
+
+    return ar;
+}
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-30T09:53:00+08:00" pubdate data-updated="true">Oct 30<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+</div>
+	
+		<span class="comments"><a href="/blog/2012/10/30/testcode//index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
 
 
     <article class="post">
