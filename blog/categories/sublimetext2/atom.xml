@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 2 | Cat Coding Things]]></title>
-  <link href="http://SemonCat.github.com/blog/categories/2/atom.xml" rel="self"/>
+  <title><![CDATA[Category: SublimeText2 | Cat Coding Things]]></title>
+  <link href="http://SemonCat.github.com/blog/categories/sublimetext2/atom.xml" rel="self"/>
   <link href="http://SemonCat.github.com/"/>
-  <updated>2012-11-04T23:14:52+08:00</updated>
+  <updated>2012-11-04T23:18:35+08:00</updated>
   <id>http://SemonCat.github.com/</id>
   <author>
     <name><![CDATA[SemonCat]]></name>
