@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Web | Cat Coding Things]]></title>
+  <link href="http://SemonCat.github.com/blog/categories/web/atom.xml" rel="self"/>
+  <link href="http://SemonCat.github.com/"/>
+  <updated>2012-11-04T23:06:58+08:00</updated>
+  <id>http://SemonCat.github.com/</id>
+  <author>
+    <name><![CDATA[SemonCat]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[JQuery.validate的一些規則]]></title>
+    <link href="http://SemonCat.github.com/blog/2012/11/04/validate-regular/"/>
+    <updated>2012-11-04T22:39:00+08:00</updated>
+    <id>http://SemonCat.github.com/blog/2012/11/04/validate-regular</id>
+    <content type="html"><![CDATA[<!-- more -->
+
+
+<p>最近需要用到一些前端的驗證，在這邊紀錄一下自己所用的規則</p>
+
+<p>```js 身分證驗證
+jQuery.validator.addMethod("ROC_Citizen_ID",</p>
+
+<pre><code>        function(citizenid, element) {
+
+            citizenid = citizenid.replace(/\s+/g, "");
+
+            return(
+                this.optional(element) || /^[A-Z]{1}[1-2]{1}[0-9]{8}$/.test(citizenid));
+
+    }, "不合理的身分證字號");
+</code></pre>
+
+<p>```</p>
+
+<p>```js 台灣地區手機驗證(XXXX-XXXXXX)
+jQuery.validator.addMethod("ROC_Celphone",</p>
+
+<pre><code>        function(cellphone, element) {
+
+            cellphone = cellphone.replace(/\s+/g, "");
+
+            return(
+                this.optional(element) || /[0][1-9]{3}\-[0-9]{6}/.test(cellphone));
+
+    }, "請輸入XXXX-XXXXXX");
+</code></pre>
+
+<p>```</p>
+
+<p>``` js 台灣地區市話驗證(XX-XXXXXXXX)
+jQuery.validator.addMethod("ROC_Telphone",</p>
+
+<pre><code>        function(cellphone, element) {
+
+            cellphone = cellphone.replace(/\s+/g, "");
+
+            return(
+                this.optional(element) || /[0-9]{2}\-[0-9]{7}/.test(cellphone));
+
+    }, "請輸入XX-XXXXXXXX");
+</code></pre>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>
