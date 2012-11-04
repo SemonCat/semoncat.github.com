@@ -4,7 +4,7 @@
   <title><![CDATA[Cat Coding Things]]></title>
   <link href="http://SemonCat.github.com/atom.xml" rel="self"/>
   <link href="http://SemonCat.github.com/"/>
-  <updated>2012-11-04T22:53:38+08:00</updated>
+  <updated>2012-11-04T23:04:06+08:00</updated>
   <id>http://SemonCat.github.com/</id>
   <author>
     <name><![CDATA[SemonCat]]></name>
@@ -12,6 +12,69 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Windows下Octopress的問題]]></title>
+    <link href="http://SemonCat.github.com/blog/2012/11/04/octopress-windowsbug/"/>
+    <updated>2012-11-04T22:55:00+08:00</updated>
+    <id>http://SemonCat.github.com/blog/2012/11/04/octopress-windowsbug</id>
+    <content type="html"><![CDATA[<p>相信有在Windows下用Octopress寫部落格的朋友都會遇到下面的錯誤訊息：</p>
+
+<pre><code>## Generating Site with Jekyll
+unchanged sass/screen.scss
+Configuration from c:/Users/SemonCat/dropbox/octopress/_config.yml
+Building site: source -&gt; public
+c:/Users/SemonCat/dropbox/octopress/plugins/pygments_code.rb:14:in `match': inva
+lid byte sequence in Big5 (ArgumentError)
+        from c:/Users/SemonCat/dropbox/octopress/plugins/pygments_code.rb:14:in
+`match'
+        from c:/Users/SemonCat/dropbox/octopress/plugins/pygments_code.rb:14:in
+`highlight'
+        from c:/Users/SemonCat/dropbox/octopress/plugins/backtick_code_block.rb:
+37:in `block in render_code_block'
+        from c:/Users/SemonCat/dropbox/octopress/plugins/backtick_code_block.rb:
+13:in `gsub'
+        from c:/Users/SemonCat/dropbox/octopress/plugins/backtick_code_block.rb:
+13:in `render_code_block'
+        from c:/Users/SemonCat/dropbox/octopress/plugins/octopress_filters.rb:12
+:in `pre_filter'
+        from c:/Users/SemonCat/dropbox/octopress/plugins/octopress_filters.rb:28
+:in `pre_render'
+        from c:/Users/SemonCat/dropbox/octopress/plugins/post_filters.rb:112:in
+`block in pre_render'
+        from c:/Users/SemonCat/dropbox/octopress/plugins/post_filters.rb:111:in
+`each'
+        from c:/Users/SemonCat/dropbox/octopress/plugins/post_filters.rb:111:in
+`pre_render'
+        from c:/Users/SemonCat/dropbox/octopress/plugins/post_filters.rb:166:in
+`do_layout'
+        from c:/Ruby192/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/lib/jekyll/post.r
+b:189:in `render'
+        from c:/Ruby192/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/lib/jekyll/site.r
+b:193:in `block in render'
+        from c:/Ruby192/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/lib/jekyll/site.r
+b:192:in `each'
+        from c:/Ruby192/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/lib/jekyll/site.r
+b:192:in `render'
+        from c:/Ruby192/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/lib/jekyll/site.r
+b:40:in `process'
+        from c:/Ruby192/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/bin/jekyll:250:in
+ `&lt;top (required)&gt;'
+        from c:/Ruby192/bin/jekyll:23:in `load'
+        from c:/Ruby192/bin/jekyll:23:in `&lt;main&gt;'
+</code></pre>
+
+<h1>解法</h1>
+
+<ol>
+<li><p>在CMD中輸入<code>export LC_ALL=zh_TW.UTF-8</code>和<code>export LANG=zh_TW.UTF-8</code>。</p></li>
+<li><p>在系統環境變數中的系統變數加入此參數。</p></li>
+<li><p><code>LC_ALL</code> <code>zh_TW.UTF-8</code></p></li>
+<li><p><code>LANG</code> <code>zh_TW.UTF-8</code></p></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[JQuery.validate的一些規則]]></title>
