@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Cat Coding Things]]></title>
   <link href="http://SemonCat.github.com/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://SemonCat.github.com/"/>
-  <updated>2012-11-05T11:14:37+08:00</updated>
+  <updated>2012-11-05T11:18:00+08:00</updated>
   <id>http://SemonCat.github.com/</id>
   <author>
     <name><![CDATA[SemonCat]]></name>
@@ -65,6 +65,8 @@
 
 <h3>程式碼實作</h3>
 
+<p>```java Shell Sort</p>
+
 <pre><code>public class Sort {
     public static void sort(int[] number) {
         int gap = number.length / 2; 
@@ -93,6 +95,8 @@
     }
 }
 </code></pre>
+
+<p>```</p>
 
 <h3>特點</h3>
 
@@ -167,8 +171,7 @@
 
 <p>以上這兩種狀況我們可以得到一個結論：</p>
 
-<pre><code>如果我們有 n 個煎餅，每次最多花 2 個動作就可以將最大號的煎餅丟到下面。因此，對於3號到 n 號煎餅（共 n-2 塊煎餅），我們可以在 2(n-2) 次動作將它們搞定，剩下來的 1 號 2 號煎餅，最多只要花1次翻面的動作就行了。也就是說，n 個煎餅，我們保證可以在 2n – 3次動作內，完成正確排序動作。剛剛的4塊煎餅，我們就用了5個動作。
-</code></pre>
+<blockquote><p>如果我們有 n 個煎餅，每次最多花 2 個動作就可以將最大號的煎餅丟到下面。因此，對於3號到 n 號煎餅（共 n-2 塊煎餅），我們可以在 2(n-2) 次動作將它們搞定，剩下來的 1 號 2 號煎餅，最多只要花1次翻面的動作就行了。也就是說，n 個煎餅，我們保證可以在 2n – 3次動作內，完成正確排序動作。剛剛的4塊煎餅，我們就用了5個動作。</p></blockquote>
 
 <p>看到這邊，我們會想到，5個動作真的是最好的情形嗎？有沒有可能花更少的次數完成這樣的動作呢？比爾蓋茲的論文當然不可能就這樣結束，以剛剛的題目為例：</p>
 

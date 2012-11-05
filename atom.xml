@@ -4,7 +4,7 @@
   <title><![CDATA[Cat Coding Things]]></title>
   <link href="http://SemonCat.github.com/atom.xml" rel="self"/>
   <link href="http://SemonCat.github.com/"/>
-  <updated>2012-11-05T11:14:37+08:00</updated>
+  <updated>2012-11-05T11:18:00+08:00</updated>
   <id>http://SemonCat.github.com/</id>
   <author>
     <name><![CDATA[SemonCat]]></name>
@@ -65,34 +65,62 @@
 
 <h3>程式碼實作</h3>
 
-<pre><code>public class Sort {
-    public static void sort(int[] number) {
-        int gap = number.length / 2; 
+<figure class='code'><figcaption><span>Shell Sort</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sort</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sort</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">number</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">gap</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="na">length</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">while</span><span class="o">(</span><span class="n">gap</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">gap</span><span class="o">;</span> <span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
+</span><span class='line'>                <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">k</span><span class="o">+</span><span class="n">gap</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">number</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">+=</span><span class="n">gap</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">gap</span><span class="o">;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">;</span> <span class="n">j</span><span class="o">-=</span><span class="n">gap</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                        <span class="k">if</span><span class="o">(</span><span class="n">number</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">number</span><span class="o">[</span><span class="n">j</span><span class="o">+</span><span class="n">gap</span><span class="o">])</span> <span class="o">{</span>
+</span><span class='line'>                            <span class="n">swap</span><span class="o">(</span><span class="n">number</span><span class="o">,</span> <span class="n">j</span><span class="o">,</span> <span class="n">j</span><span class="o">+</span><span class="n">gap</span><span class="o">);</span>
+</span><span class='line'>                        <span class="o">}</span>
+</span><span class='line'>                        <span class="k">else</span>
+</span><span class='line'>                            <span class="k">break</span><span class="o">;</span>
+</span><span class='line'>                    <span class="o">}</span>
+</span><span class='line'>                <span class="o">}</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="n">gap</span> <span class="o">/=</span> <span class="mi">2</span><span class="o">;</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">swap</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">number</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">number</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+</span><span class='line'>        <span class="n">number</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">number</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+</span><span class='line'>        <span class="n">number</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">t</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-        while(gap &gt; 0) { 
-            for(int k = 0; k &lt; gap; k++) { 
-                for(int i = k+gap; i &lt; number.length; i+=gap) { 
-                    for(int j = i - gap; j &gt;= k; j-=gap) { 
-                        if(number[j] &gt; number[j+gap]) { 
-                            swap(number, j, j+gap); 
-                        } 
-                        else 
-                            break; 
-                    } 
-                } 
-            } 
-
-            gap /= 2; 
-        } 
-    }
-
-    private static void swap(int[] number, int i, int j) {
-        int t = number[i]; 
-        number[i] = number[j]; 
-        number[j] = t;
-    }
-}
-</code></pre>
 
 <h3>特點</h3>
 
@@ -167,8 +195,7 @@
 
 <p>以上這兩種狀況我們可以得到一個結論：</p>
 
-<pre><code>如果我們有 n 個煎餅，每次最多花 2 個動作就可以將最大號的煎餅丟到下面。因此，對於3號到 n 號煎餅（共 n-2 塊煎餅），我們可以在 2(n-2) 次動作將它們搞定，剩下來的 1 號 2 號煎餅，最多只要花1次翻面的動作就行了。也就是說，n 個煎餅，我們保證可以在 2n – 3次動作內，完成正確排序動作。剛剛的4塊煎餅，我們就用了5個動作。
-</code></pre>
+<blockquote><p>如果我們有 n 個煎餅，每次最多花 2 個動作就可以將最大號的煎餅丟到下面。因此，對於3號到 n 號煎餅（共 n-2 塊煎餅），我們可以在 2(n-2) 次動作將它們搞定，剩下來的 1 號 2 號煎餅，最多只要花1次翻面的動作就行了。也就是說，n 個煎餅，我們保證可以在 2n – 3次動作內，完成正確排序動作。剛剛的4塊煎餅，我們就用了5個動作。</p></blockquote>
 
 <p>看到這邊，我們會想到，5個動作真的是最好的情形嗎？有沒有可能花更少的次數完成這樣的動作呢？比爾蓋茲的論文當然不可能就這樣結束，以剛剛的題目為例：</p>
 
