@@ -1,0 +1,268 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>希爾排序法 Shell Sorting - Cat Coding Things</title>
+	<meta name="author" content="SemonCat">
+
+	
+	<meta name="description" content="希爾排序法 Shell Sorting 前言： 在寫作業之前，以為只要寫一個演算法做介紹就好，後來才發現需要兩個，於是又稍微再找了一下，這次不希望在繼續介紹不實用的排序法了，因為剩下來的真的不酷又不實用，於是在維基翻了一下以後，找到了Shell 排序法這個演算法。 希爾排序法： 由來 &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Cat Coding Things" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+<body class="collapse-sidebar sidebar-footer">
+	<header id="header" class="inner"><h1><a href="/">Cat Coding Things</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:SemonCat.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		<a class="facebook" href="http://www.facebook.com/SemonCat" title="Facebook">Facebook</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:SemonCat.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h1 class="title">希爾排序法 Shell Sorting</h1>
+	<div class="entry-content"><!-- more -->
+
+
+<h1><strong>希爾排序法 Shell Sorting</strong></h1>
+
+<h2>前言：</h2>
+
+<p>在寫作業之前，以為只要寫一個演算法做介紹就好，後來才發現需要兩個，於是又稍微再找了一下，這次不希望在繼續介紹不實用的排序法了，因為剩下來的真的不酷又不實用，於是在維基翻了一下以後，找到了<strong>Shell 排序法</strong>這個演算法。</p>
+
+<h2>希爾排序法：</h2>
+
+<h3>由來</h3>
+
+<p>希爾排序法是改良自插入排序法，插入排序法由未排序的後半部前端取出一個值，插入已排序前半部的適當位置，概念簡單但速度不快，排序要加快的基本原則之一，是讓後一次的排序進行時，儘量利用前一次排序後的結果，以加快排序的速度，希爾排序法即是基於此一概念來改良插入排序法。</p>
+
+<p>希爾排序法最初是D.L Shell於1959所提出，假設要排序的元素有n個，則每次進行插入排序時並不是所有的元素同時進行時，而是取一段間隔。</p>
+
+<h3>解法</h3>
+
+<p>希爾首先將間隔設定為n/2，然後跳躍進行插入排序，再來將間隔n/4，跳躍進行排序動作，再來間隔設定為n/8、n/16，直到間隔為1之後的最 後一次排序終止，由於上一次的排序動作都會將固定間隔內的元素排序好，所以當間隔越來越小時，某些元素位於正確位置的機率越高，因此最後幾次的排序動作將 可以大幅減低。</p>
+
+<p>舉個例子來說，假設有一未排序的數字如下：</p>
+
+<blockquote><p>89 12 65 97 61 81 27 2 61 98</p></blockquote>
+
+<p>數字的總數共有10個，所以第一次我們將間隔設定為10 / 2 = 5，此時我們對間隔為5的數字進行排序，如下所示：</p>
+
+<p><img src="http://farm9.staticflickr.com/8060/8156302958_f7d0785004.jpg" alt="Img1" /></p>
+
+<p>畫線連結的部份表示 要一起進行排序的部份，再來將間隔設定為5 / 2的商，也就是2，則第二次的插入排序對象如下所示：</p>
+
+<p><img src="http://farm8.staticflickr.com/7264/8156302898_6343108f38.jpg" alt="Img2" /></p>
+
+<p>再來間隔設定為2 / 2 = 1，此時就是單純的插入排序了，由於大部份的元素都已大致排序過了，所以最後一次的插入排序幾乎沒作什麼排序動作了：</p>
+
+<p><img src="http://farm9.staticflickr.com/8203/8156302822_7953169334.jpg" alt="Img3" /></p>
+
+<p>將間隔設定為n / 2是D.L Shell最初所提出，在教科書中使用這個間隔比較好說明，然而Shell排序法的關鍵在於間隔的選定，例如Sedgewick證明選用以下的間隔可以加 快Shell排序法的速度：</p>
+
+<p><img src="http://farm8.staticflickr.com/7258/8156302760_74b274eb60.jpg" alt="Img4" /></p>
+
+<p>其中4<em>(2j)2 + 3</em>(2j) + 1不可超過元素總數n值，使用上式找出j後代入4<em>(2j)2 + 3</em>(2j) + 1求得第一個間隔，然後將2j除以2代入求得第二個間隔，再來依此類推。</p>
+
+<p>後來還有人證明有其它的間隔選定法可以將希爾排序法的速度再加快；另外Shell排序法的概念也可以用來改良氣泡排序法。</p>
+
+<h3>程式碼實作</h3>
+
+<pre><code>public class Sort {
+    public static void sort(int[] number) {
+        int gap = number.length / 2; 
+
+        while(gap &gt; 0) { 
+            for(int k = 0; k &lt; gap; k++) { 
+                for(int i = k+gap; i &lt; number.length; i+=gap) { 
+                    for(int j = i - gap; j &gt;= k; j-=gap) { 
+                        if(number[j] &gt; number[j+gap]) { 
+                            swap(number, j, j+gap); 
+                        } 
+                        else 
+                            break; 
+                    } 
+                } 
+            } 
+
+            gap /= 2; 
+        } 
+    }
+
+    private static void swap(int[] number, int i, int j) {
+        int t = number[i]; 
+        number[i] = number[j]; 
+        number[j] = t;
+    }
+}
+</code></pre>
+
+<h3>特點</h3>
+
+<ul>
+<li>Knuth的數列將可使不同階段的h-sort所處理的元素充分交錯，使鍵值更快趨近正序</li>
+<li>效率：如果採用Knuth數列，時間複雜度將可達O(n(lg n)2)</li>
+<li>希爾排序法的效率優於氣泡、選擇、插入，尤其在資料量大的時候</li>
+<li>空間：不需要額外記憶體空間</li>
+<li>穩定性：不具有穩定性</li>
+</ul>
+
+
+<h3>複雜度</h3>
+
+<ul>
+<li>時間： 最佳 O(n) 最差 O(n<sup>1.5)</sup> [增量遞減方式為 3*n+1]</li>
+<li>空間： O(n), O(1) 輔助</li>
+</ul>
+
+
+<h2>結論：</h2>
+
+<p>希爾排序法主要應用在序列不大的排序中，因為時間會隨增量而改變，最差甚至達O(n<sup>1.5)，但是在序列不大的排序中，希爾排序法甚至比快速排序法更加快速，而在外國對希爾排序法的研究中指出，</sup></p>
+
+<blockquote><p>比較在希爾排序中是最主要的操作，而不是交換。</p></blockquote>
+
+<p>這名研究者<strong>Marcin Ciura</strong>設計出一個最適合希爾排序法的序列：</p>
+
+<blockquote><p>（1，4，10，23，57，132，301，701，1750，…）</p></blockquote>
+
+<p>在這樣的序列中，希爾排序法比比插入排序和堆排序都要快，甚至在小數組中比快速排序還快，但是在涉及大量數據時希爾排序還是比快速排序慢。</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-05T11:13:00+08:00" pubdate data-updated="true">Nov 5<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/algorithm/'>Algorithm</a>
+
+
+</div>
+	
+		<span class="comments"><a href="/blog/2012/11/05/shell-sorking/#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2012
+
+    SemonCat
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/autoblank.js"></script>
+<script src="/javascripts/prettify/prettify.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'semoncat';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://SemonCat.github.com/blog/2012/11/05/shell-sorking/';
+        var disqus_url = 'http://SemonCat.github.com/blog/2012/11/05/shell-sorking/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>煎餅排序法 Pancake sorting - Cat Coding Things</title>
+	<meta name="author" content="SemonCat">
+
+	
+	<meta name="description" content="煎餅排序法 Pancake sorting 前言： 在看演算法中，有哪些有趣的演算法的時候，注意到維基有一個對於排序演算法的表格介紹是這樣的： The following table describes some sorting algorithms that are impractical &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Cat Coding Things" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+<body class="collapse-sidebar sidebar-footer">
+	<header id="header" class="inner"><h1><a href="/">Cat Coding Things</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:SemonCat.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		<a class="facebook" href="http://www.facebook.com/SemonCat" title="Facebook">Facebook</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:SemonCat.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h1 class="title">煎餅排序法 Pancake Sorting</h1>
+	<div class="entry-content"><!-- more -->
+
+
+<h1><strong>煎餅排序法 Pancake sorting</strong></h1>
+
+<h2>前言：</h2>
+
+<p>在看演算法中，有哪些有趣的演算法的時候，注意到維基有一個對於排序演算法的表格介紹是這樣的：</p>
+
+<blockquote><p>The following table describes some sorting algorithms that are impractical for real-life use due to extremely poor performance or a requirement for specialized hardware.</p></blockquote>
+
+<p>大意是說這些演算法在實際生活上是沒什麼用處的，稍微看一下一下老師作業的說明，並未提到不可以介紹這些演算法，於是就想要從這個表格下手，稍微看了一下，這些演算法的資源實在非常少，大概是因為太沒有用處了，因此研究的人也不多，在這邊看到了一個叫做Bogo排序法（bogo-sort）的演算法，實在非常有趣，維基對此演算法的介紹如下：</p>
+
+<blockquote><p>在計算機科學中，Bogo排序（bogo-sort）是個既不實用又原始的排序演算法，其原理等同將一堆卡片拋起，落在桌上後檢查卡片是否已整齊排列好，若非就再拋一次。其名字源自Quantum bogodynamics，又稱bozo sort、blort sort或猴子排序（參見無限猴子定理）。</p></blockquote>
+
+<p>雖然說這類型的演算法很有趣，但是看起來好像沒有任何實用的價值，因此，我又繼續尋找相關的資源，直到看到了這次的主題－<em>煎餅排序法（Pancake sorting）</em>。</p>
+
+<h2>煎餅排序法：</h2>
+
+<h3>由來</h3>
+
+<p>在找這個演算法的相關資料的時候，不得不說，中文資源實在少得可憐，多虧<strong>靜宜大學－林耀鈴</strong>老師的論文<em>比爾蓋茲在大學裏所寫的論文</em>，該篇論文讓我對此演算法的理解有非常大的幫助，這個演算法是由舉世聞名的人－<strong>比爾蓋茲</strong>所想出來的，當時他與他的老師<strong>Christos H. Papadimitriou</strong>共同研究一個很有趣的數學問題，並且在後來寫成了一篇論文。</p>
+
+<h3>介紹</h3>
+
+<p>比爾蓋茲想出一個問題如下：</p>
+
+<blockquote><p>一位餐廳侍者在送出一疊煎餅 (pancakes) 到顧客之前，發現廚師實在太混了，這些煎餅大小不一，混雜在一起堆成一疊，客人實在不會有太多好感。因此，在送出這些煎餅之前，這位侍者會使用一片鍋鏟將這些煎餅重新排成一疊由小而大排列的煎餅。不過，由於盤子太小，我們不能夠將煎餅平餔後再重新排一次，而只能用鍋鏟卡在某個煎餅的下方，將上頭全部的煎餅一起做翻面的動作。比如說，這裡有三塊煎餅，最大的一塊叫做3,中間大小的是2,最小的一塊就是1。如果1號在盤子的最下面，3號煎餅疊在它上面，最上面的煎餅就是2號；由上而下的排列就是：(2,3,1)。那麼，侍者就可以先用鍋鏟卡在第二個煎餅的下方，將前2個煎餅做翻面的動作，這三個煎餅順序就成了：(3,2,1)；然後，侍者就可以再用鍋鏟卡在第3個煎餅的下方，將全部煎餅做翻面的動作，這三個煎餅順序就成了：(1,2,3)。好了，我們這位高興的侍者就可以趕緊將這些排好的煎餅送出去給客人了。</p></blockquote>
+
+<p>這個題目並不好懂，起碼我自己讀了兩次才明白，並且深深覺得比爾蓋茲果然不是普通人，想得出這種問題。當然，這個問題只是個起頭，接下來他進一步敘述了更複雜的狀況：</p>
+
+<blockquote><p>煎餅的數量是4個，順序是：(2, 4, 3, 1)，那麼……我們要用鍋鏟做多少個動作呢？有一個很簡單的想法是這樣子：我們可以先找到最大的那片煎餅所在的位置，在它下面用鍋鏟做翻面的動作；如此一來，最大的一塊餅就會跑到最上面來，接著我們用鍋鏟將整疊煎餅翻轉過來，於是最大的一塊餅就會跑到最下面。為了說明方便，我們用 [2] 這個符號代表我們想要將前2個煎餅翻面。所以，我們就用 [2] -> (4, 2, 3,1) 來表示這個動作與結果。然後，在第二個動作我們得到：[4]->(1,3,2,4)。再來，我們再用兩個動作：[2]->(3,1,2,4) ; [3]->(2,1,3,4) 就可以將 3 號煎餅丟到4號上面。再來，最後一個動作就是 [2]->(1,2,3,4)。</p></blockquote>
+
+<p>以上這兩種狀況我們可以得到一個結論：</p>
+
+<pre><code>如果我們有 n 個煎餅，每次最多花 2 個動作就可以將最大號的煎餅丟到下面。因此，對於3號到 n 號煎餅（共 n-2 塊煎餅），我們可以在 2(n-2) 次動作將它們搞定，剩下來的 1 號 2 號煎餅，最多只要花1次翻面的動作就行了。也就是說，n 個煎餅，我們保證可以在 2n – 3次動作內，完成正確排序動作。剛剛的4塊煎餅，我們就用了5個動作。
+</code></pre>
+
+<p>看到這邊，我們會想到，5個動作真的是最好的情形嗎？有沒有可能花更少的次數完成這樣的動作呢？比爾蓋茲的論文當然不可能就這樣結束，以剛剛的題目為例：</p>
+
+<p><code>2431 [3]-&gt; 3421 [2]-&gt; 4321 [4]-&gt; 1234</code></p>
+
+<p>就可以只用3個動作就將它搞定。</p>
+
+<h3>最佳解</h3>
+
+<p>問題來了，怎麼得到這是最少次數的結論呢？<strong>難道不可能再低於三次嗎？</strong>
+再以剛剛的題目為例：</p>
+
+<p><code>4個煎餅：(2, 4, 3, 1)</code></p>
+
+<p>最前面兩個數字<strong>2</strong>跟<strong>4</strong>，還有後面兩個數字<strong>3</strong>跟<strong>1</strong>，他們分別並不是連續的兩個數字，在比爾蓋茲的論文中，把這種情況稱為<em>斷點</em>，斷點的意義在哪邊呢？我們會發現到，如果不把鍋鏟放入斷點之中，這個斷點永遠不會消失，於是就不可能排序了，因此，以剛剛的題目為例：</p>
+
+<p>有<code>2-4</code>、<code>3-1</code>兩個斷點，再加上1與<strong>鍋底</strong>之間，也算一個斷點，應此我們可以算出此題有三個斷點。</p>
+
+<p>因此，我們可以得到3個動作就是最佳解的結論。</p>
+
+<h3>例外</h3>
+
+<p>但是，比爾蓋茲提到，這是最佳解的算法，但此最佳解不一定存在，例如6個煎餅，順序是<code>536142</code>，則至少需要7個動作才能完成排序。</p>
+
+<h2>延伸討論：</h2>
+
+<p>目前為止，仍然沒有一個非常有效率可以算出煎餅排序法最佳解法的演算法，比爾蓋茲在這邊提出他對此演算法的想法如下：</p>
+
+<blockquote><p>對 n 個煎餅的任何排列，都能找出一組鍋鏟動作，並且保證可以在 (5n+5)/3 次動作之內得到由小而大的正確排列。</p></blockquote>
+
+<p>比爾蓋茲在他的論文中有寫明她跟老師所研究出來的演算法，分為以下幾個步驟：</p>
+
+<ol>
+<li>先去掉<code>n-2</code>個斷點</li>
+<li>最後在對剩下兩個斷點做處理</li>
+<li>得到一組<code>還不錯的解法</code></li>
+</ol>
+
+
+<p>更進一步，是否可以算出最佳解究竟需要幾次動作完成排序？以下是比爾蓋茲的說明：</p>
+
+<blockquote><p>函數 f(n) 來表示：給定 n 個煎餅的任何順序，對最難排好的排列而言，我們最少需要的鍋鏟動作數。也就是說，對於任何 n 個排列，我們用 f(n) 次鍋鏟動作保證可以將它排好，但是 f(n)+1 次就一定是太浪費了。很明顯地，利用剛剛提到 Gates 的 heuristics ，我們知道 f(n) 最多就是到 (5n+5)/3, 也就是說，f(n) ≦ (5n+5)/3. 同時，既然 n 個煎餅最多有可能有 n 個斷點，很明顯地 n ≦ f(n). Gates 與 Papadimitriou 在這篇文章中的另一個貢獻就是提出 f(n) 在 n 夠大之後不會只有 n 那麼小。論文中，他們提出一些觀點，基本上，他們用的方法是利用這個反覆一段長度為16的基本序列：</p>
+
+<p>  (1, 7, 5, 3, 6, 4, 2, 8, 16, 10, 12, 14, 11, 13, 15, 9)</p>
+
+<p>反覆 k 次之後，他們論證：至少需要17k 以上的翻面動作才能將這些16k 個煎餅排好。因此證明了 (17/16) n ≦ f(n), 文章結論就是說：(17/16) n ≦ f(n) ≦ (5n+5)/3。知道 f(n) 最少是 (17/16)n ，而且也有一個 heuristics 說明 (5n+5)/3 動作就一定可以將 n 個煎餅排好順序的確不錯。但是無論如何，人們還是會想知道「最佳解」f(n) 的確切答案。很明顯的， f(1) = 0, 一個煎餅本身就已經排好; f(2) = 1, 兩個煎餅最多翻一次就行。 f(3) = 3, 因為 132 怎麼翻都需要3次 （注意到它其實只有兩個斷點。）下面這個表格列出 f(n) 的前13個數值。</p></blockquote>
+
+<p><img src="http://farm9.staticflickr.com/8058/8154730978_d8a3597e86.jpg" alt="Table" /></p>
+
+<p>這個表格並不是這個容易地完成的，前7個數字，是由在計算機理論界鼎鼎大名的 Garey and Johson (以及 S. Lin) 在 1977 年算出來的。 f(8) 與 f(9) 則由 Robbins 在1979 年 算出。一直到18年後，f(10) 到 f(13)才由M. Heydari and I. H. Sudborough 在 1997 年算出來的。事實上，他們最後還改進了原來 Gates 他們所提出了原來 f(n) 的下限。他們提出類似的論證：利用這個反覆一段長度為14的基本序列：</p>
+
+<pre><code>(1, 7, 5, 3, 6, 4, 2, 8, 14, 12, 10, 13, 11, 9)
+</code></pre>
+
+<p>反覆 k 次之後，他們論證：至少需要15k 以上的翻面動作才能將這些14k 個煎餅排好。因此證明了 (15/14)n ≦ f(n) 。比較有趣的是，20年都已經過去， f(n) 的下限只提升了一點點，而比爾蓋茲的演算法， f(n) ≦ (5n+5)/3 的f(n) 上限到現在還是沒有任何改進。</p>
+
+<h2>結論：</h2>
+
+<p>雖然這個演算法對於電腦真正的排序並沒有任何的幫助，但是可以讓我們一窺電腦天才－比爾蓋茲的一些想法，而這個有趣的問題目前也被延伸到某些領域，例如生物資訊領域中的DNA相關應用，這個煎餅問題，似乎同樣發生在生物DNA上面，只可惜，這個問題，幾乎很難獲得有效率的演算法，而且同樣的問題，其實有更好的方式來獲得最佳解，在這邊也看到一則趣聞，是這樣說的：</p>
+
+<blockquote><p>有位學者有一天在路上遇見 Papadimitriou ，他也知道從前 Gates 跟他做了這篇研究論文。於在閒聊中就奉承地說：「唉啊！Gates 當初如果跟著您繼續學藝，今天他的學問必然是不可限量；他當初沒有追隨大師繼續做下去實在是太可惜了。」沒想到 Papadimitriou 卻回答說：「哪裡，我那時沒有跑去追隨 Gates 到 Microsoft， 我才是真正的可惜！」</p></blockquote>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-05T11:12:00+08:00" pubdate data-updated="true">Nov 5<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/algorithm/'>Algorithm</a>
+
+
+</div>
+	
+		<span class="comments"><a href="/blog/2012/11/05/pancake-sorking/#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2012
+
+    SemonCat
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/autoblank.js"></script>
+<script src="/javascripts/prettify/prettify.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'semoncat';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://SemonCat.github.com/blog/2012/11/05/pancake-sorking/';
+        var disqus_url = 'http://SemonCat.github.com/blog/2012/11/05/pancake-sorking/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>
